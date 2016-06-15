@@ -59,13 +59,34 @@ events that cause a server request.
 Options/Ideas
 
 * use our API to define in application code where transaction starts
-    * This can't probably be the only way as no one will care enought to manage it.
-    * It is probably still useful to some people so we should have it.            
-        
+    * This can't probably be the only way as no one will care enough to manage it.
+    * It is probably still useful to some people so we should have it.                    
         
 ## When to end transaction
 
-TODO
+Ending transaction means that user interaction has ended. He/She has gotten the response from
+the application or it might have also failed.
+
+Is there a need to differentiate between single page application and mostly server rendered app?
+I don't think there are many pages where nothing is loaded asynchronously on client side anymore.
+
+The difference between nav and no nav and hard and soft is not so clear here. 
+But it seems like it makes things a bit easier. 
+ 
+### 1. Navigation
+
+#### Hard Navigation
+
+* K-VBAD DOM completed
+    * Only accurate on mostly server rendered pages
+* K-BAD All XHRs completed
+    * HTTP polling, eg. our welcome page, can possibly detect this and work around
+    * Some totally unimportant XHR might slow the whole transaction. How often is this the case?                           
+* K-IFY                  
+        
+### 2. No Navigation
+
+
         
 ## Notes/explanations
 
